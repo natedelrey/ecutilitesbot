@@ -1,5 +1,5 @@
 """
-Ethics Committee Operations Bot
+Internal Tribunal Department Operations Bot
 - Discord slash commands
 - Roblox verification
 - Roblox activity webhooks
@@ -108,8 +108,8 @@ class BotConfig:
     port: int = getenv_int("PORT", 8080) or 8080
 
     # Department branding
-    department_name: str = getenv_str("DEPARTMENT_NAME", "Ethics Committee") or "Ethics Committee"
-    department_abbrev: str = getenv_str("DEPARTMENT_ABBREVIATION", "EC") or "EC"
+    department_name: str = getenv_str("DEPARTMENT_NAME", "Internal Tribunal Department") or "Internal Tribunal Department"
+    department_abbrev: str = getenv_str("DEPARTMENT_ABBREVIATION", "ITD") or "ITD"
     department_color: discord.Color = getenv_color("DEPARTMENT_COLOR", "2A3825")
     department_group_url: str = getenv_str(
         "DEPARTMENT_GROUP_URL",
@@ -150,11 +150,11 @@ class BotConfig:
     max_strikes: int = getenv_int("MAX_STRIKES", 3) or 3
 
     # Welcome
-    welcome_title: str = getenv_str("WELCOME_TITLE", "Welcome to the Ethics Committee") or "Welcome to the Ethics Committee"
+    welcome_title: str = getenv_str("WELCOME_TITLE", "Welcome to the Internal Tribunal Department") or "Welcome to the Internal Tribunal Department"
     welcome_message: str = getenv_str(
         "WELCOME_MESSAGE",
-        "Welcome {member} to the Ethics Committee! Please verify with `/verify`, review the handbook, and stay active on-site.",
-    ) or "Welcome {member} to the Ethics Committee! Please verify with `/verify`, review the handbook, and stay active on-site."
+        "Welcome {member} to the Internal Tribunal Department! Please verify with `/verify`, review the handbook, and stay active on-site.",
+    ) or "Welcome {member} to the Internal Tribunal Department! Please verify with `/verify`, review the handbook, and stay active on-site."
 
 
 CONFIG = BotConfig()
@@ -177,7 +177,7 @@ def is_default_role(role: discord.Role) -> bool:
     return role.is_default() or role.id == role.guild.id
 
 
-class ECBot(commands.Bot):
+class ITDBot(commands.Bot):
     def __init__(self):
         super().__init__(command_prefix="!", intents=intents)
         self.db_pool: asyncpg.Pool | None = None
@@ -511,7 +511,7 @@ class ECBot(commands.Bot):
             )
 
 
-bot = ECBot()
+bot = ITDBot()
 
 
 # ============================================================
