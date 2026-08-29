@@ -138,7 +138,7 @@ class BotConfig:
     roblox_service_secret: str | None = getenv_str("ROBLOX_SERVICE_SECRET")
 
     # Activity
-    weekly_time_requirement: int = getenv_int("WEEKLY_TIME_REQUIREMENT", 120) or 120
+    weekly_time_requirement: int = getenv_int("WEEKLY_TIME_REQUIREMENT", 15) or 15
     auto_weekly_report: bool = getenv_bool("AUTO_WEEKLY_REPORT", False)
     auto_weekly_reset: bool = getenv_bool("AUTO_WEEKLY_RESET", False)
     auto_report_weekday_utc: int = getenv_int("AUTO_REPORT_WEEKDAY_UTC", 6) or 6  # Sunday
